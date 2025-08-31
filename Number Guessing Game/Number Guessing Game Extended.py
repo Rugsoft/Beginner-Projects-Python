@@ -1,5 +1,6 @@
 from random import randint  # Importa la función randint para generar números aleatorios
 contador = 0  # Variable global para contar los intentos
+direccion_archivo = "Number Guessing Game/intentos.txt"
 
 def random_number():
     # Genera un número aleatorio dentro del rango elegido y calcula los intentos máximos
@@ -36,7 +37,22 @@ def limite_intentos(n1, n2):
     else:
         intentos_max = 30
     return intentos_max
-    
+
+def guardar_resultado(intentos):
+    # Guarda el número de intentos en el archivo especificado
+    with open(direccion_archivo, "a") as file:
+        file.write(str(intentos) + "\n")  # Escribe el número de intentos en una nueva línea
+
+def mejor_intento():
+    # Lee todos los intentos guardados y muestra el menor número de intentos logrado
+    lista_intentos = []  # Lista para almacenar los intentos guardados
+    with open(direccion_archivo) as file:
+        for line in file:
+            lista_intentos.append(int(line))  # Convierte cada línea a entero y la agrega a la lista
+    minimo_intento = min(lista_intentos)  # Obtiene el menor valor de la lista
+    print("Tu menor numero de intentos es:", minimo_intento)
+            
+
 def adivinar_numero():
     # Lógica principal del juego de adivinar el número
     numero_oculto, intentos = random_number()  # Número a adivinar y número máximo de intentos
@@ -54,6 +70,8 @@ def adivinar_numero():
             else:
                 print(f"Correcto, el número era: {numero_oculto}")  # Adivinó el número
                 print(f"Lo ha adivinado en {contador} intento/s")
+                guardar_resultado(contador)
+                mejor_intento()
                 break
         else:
             print("Introduce un número, listillo!")  # Mensaje si la entrada no es un número
