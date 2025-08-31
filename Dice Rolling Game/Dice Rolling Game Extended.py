@@ -1,4 +1,5 @@
 from random import randint  # Importa la función randint para generar números aleatorios entre dos valores
+contador = 0 # Declaro la variable global que contará las tiradas
 
 def roll_dice(dice):
     # Lanza la cantidad de dados especificada y retorna una lista con los resultados
@@ -15,6 +16,12 @@ def numero_de_dados():
             return int(dice)  # Retorna el número de dados si la entrada es válida
         else:
             print("No es un numero, vuelve a intentarlo")  # Mensaje de error si no es número
+
+def contador_tiradas():
+    # Función que cuenta las tiradas y lo muestra
+    global contador  # Usamos 'global' para modificar la variable global 'contador' desde la función
+    contador += 1
+    print(f"Llevas {contador} tirada/s")
     
 def main():
     # Función principal que controla el flujo del juego
@@ -25,6 +32,7 @@ def main():
             dice_list = roll_dice(dice)  # Lanza los dados y obtiene los resultados
             for i, d in enumerate(dice_list):
                 print(f"Dado {i+1} = {d}")  # Muestra el resultado de cada dado
+            contador_tiradas() # Llamo a la funcion que cuenta las tiradas
         elif choice.lower() == "n":
             print("Saliendo del dado...")  # Mensaje de salida
             break
