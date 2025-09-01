@@ -1,4 +1,4 @@
-direccion_archivo = "Ejercicios TauFormar/inventario.txt"  # Variable con la ruta del archivo donde se guarda el inventario
+direccion_archivo = "Inventario Simple/inventario.txt"  # Variable con la ruta del archivo donde se guarda el inventario
 listas_productos = []  # Lista global que almacena los productos y sus cantidades
 
 
