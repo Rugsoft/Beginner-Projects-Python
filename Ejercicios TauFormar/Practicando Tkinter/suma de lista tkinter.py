@@ -14,20 +14,21 @@ def añadir_numero():
     global contador  # Indicamos que usaremos la variable global contador
     try:
         num = int(entry_numeros.get())  # Convertimos la entrada a número entero
+        if not lista_numeros:  # Si la lista está vacía
+            añadido_label.config(text=f"Número {num} añadido")
+            lista_numeros.append(num)
+        elif num == lista_numeros[-1]:  # Si el número es igual al último añadido
+            contador += 1  # Incrementamos el contador de repeticiones
+            añadido_label.config(text=f"Número {num} añadido x{contador+1}")
+            lista_numeros.append(num)   
+        else:  # Si el número es diferente al último
+            añadido_label.config(text=f"Número {num} añadido")
+            lista_numeros.append(num)
+            contador = 0  # Reiniciamos el contador de repeticiones
     except ValueError:
         ventana_error_flag()
 
-    if not lista_numeros:  # Si la lista está vacía
-        añadido_label.config(text=f"Número {num} añadido")
-        lista_numeros.append(num)
-    elif num == lista_numeros[-1]:  # Si el número es igual al último añadido
-        contador += 1  # Incrementamos el contador de repeticiones
-        añadido_label.config(text=f"Número {num} añadido x{contador+1}")
-        lista_numeros.append(num)   
-    else:  # Si el número es diferente al último
-        añadido_label.config(text=f"Número {num} añadido")
-        lista_numeros.append(num)
-        contador = 0  # Reiniciamos el contador de repeticiones
+    
 
 def sumar_lista():
     """
