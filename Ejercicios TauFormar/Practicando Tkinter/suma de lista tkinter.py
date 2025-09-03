@@ -41,11 +41,14 @@ def sumar_lista():
     contador = 0  # Reiniciamos el contador
 
 def ventana_error_flag():
+    # Creamos una nueva ventana para mostrar el error
     ventana_error = tk.Tk()
-    ventana_error.title("Error de ValueError")
-    ventana_error.geometry("150x75")
+    ventana_error.title("Error de ValueError")  # Título de la ventana de error
+    ventana_error.geometry("150x75")  # Tamaño de la ventana de error
+    # Etiqueta que muestra el mensaje de error
     error_label = tk.Label(ventana_error, text="Introduce un número!")
     error_label.pack()
+    # Botón para cerrar solo la ventana de error
     boton_error = tk.Button(ventana_error, text="Cerrar", command=lambda: ventana_error.destroy())
     boton_error.pack()
 
@@ -75,5 +78,5 @@ boton_suma.pack()  # Colocar el botón en la ventana
 suma_label = tk.Label(ventana, text="")  # Etiqueta para mostrar el resultado de la suma
 suma_label.pack()  # Colocar la etiqueta de resultado en la ventana
 
-# Iniciar el bucle principal de la aplicación
-ventana.mainloop()  # Este comando mantiene la ventana abierta y responde a eventos
+# Iniciar el bucle principal de la aplicación (mantiene la ventana abierta y responde a eventos)
+ventana.mainloop()  # Bucle principal de Tkinter
