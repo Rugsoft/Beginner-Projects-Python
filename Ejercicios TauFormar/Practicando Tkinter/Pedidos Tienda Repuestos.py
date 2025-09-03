@@ -13,9 +13,9 @@ COLOR_BOTON_TEXTO = "#FFFFFF"
 COLOR_ETIQUETA_RESULTADO = "#2ECC71"
 COLOR_MENSAJE_ERROR = "#E74C3C"
 
-FONT_NORMAL = ("consolas", 12)
-FONT_BOLD = ("consolas", 12, "bold")
-FONT_RESULTADO = ("consolas", 16, "bold")
+FONT_NORMAL = ("Consolas", 12)
+FONT_BOLD = ("Consolas", 12, "bold")
+FONT_RESULTADO = ("onsolas", 16, "bold")
 
 
 # --- Funciones ---
