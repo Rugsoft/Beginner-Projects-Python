@@ -1,5 +1,6 @@
 # Importamos tkinter para crear la interfaz gráfica
 import tkinter as tk
+from tkinter import messagebox
 
 # Variables globales para almacenar la lista de números y contar repeticiones
 lista_numeros = []  # Lista para guardar los números ingresados
@@ -42,6 +43,9 @@ def sumar_lista():
     contador = 0  # Reiniciamos el contador
 
 def ventana_error_flag():
+    messagebox.showerror("Error", "Introduce un número válido!")
+    return
+    """
     # Creamos una nueva ventana para mostrar el error
     ventana_error = tk.Tk()
     ventana_error.title("Error de ValueError")  # Título de la ventana de error
@@ -52,7 +56,7 @@ def ventana_error_flag():
     # Botón para cerrar solo la ventana de error
     boton_error = tk.Button(ventana_error, text="Cerrar", command=lambda: ventana_error.destroy())
     boton_error.pack()
-
+    """
     
     
 # Crear la ventana principal
