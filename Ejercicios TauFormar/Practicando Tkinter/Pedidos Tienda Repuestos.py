@@ -185,11 +185,11 @@ etiqueta_mensaje = tk.Label(
 etiqueta_mensaje.place(x=50, y=280)
 
 # Botones para guardar en archivos
-boton_guardar_historial = tk.Button(ventana, text="Guardar Historial", command=guardar_historial, font=FONT_BOLD, bg=COLOR_BOTON, fg=COLOR_BOTON_TEXTO, width=15)
-boton_guardar_historial.place(x=50, y=350)
+boton_guardar_historial = tk.Button(ventana, text="Save Historial", command=guardar_historial, font=FONT_BOLD, bg=COLOR_BOTON, fg=COLOR_BOTON_TEXTO, width=18)
+boton_guardar_historial.place(x=25, y=350)
 
-boton_guardar_estadisticas = tk.Button(ventana, text="Guardar Estadísticas", command=guardar_estadisticas, font=FONT_BOLD, bg=COLOR_BOTON, fg=COLOR_BOTON_TEXTO, width=15)
-boton_guardar_estadisticas.place(x=200, y=350)
+boton_guardar_estadisticas = tk.Button(ventana, text="Save Estadísticas", command=guardar_estadisticas, font=FONT_BOLD, bg=COLOR_BOTON, fg=COLOR_BOTON_TEXTO, width=18)
+boton_guardar_estadisticas.place(x=215, y=350)
 
 
 # --- Bucle Principal de la Aplicación ---
