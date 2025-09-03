@@ -112,7 +112,7 @@ def actualizar_mensaje(texto, color):
 ventana = tk.Tk()
 ventana.title("Gestor de Pedidos - Tienda de Repuestos")
 ventana.geometry("400x450")
-ventana.resizable(False, False)
+#ventana.resizable(False, False)
 ventana.configure(bg=COLOR_FONDO)
 
 # --- Creación y Posicionamiento de Widgets ---
