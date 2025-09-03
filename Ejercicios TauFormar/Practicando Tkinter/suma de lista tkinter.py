@@ -12,8 +12,11 @@ def añadir_numero():
     También maneja el contador de repeticiones consecutivas.
     """
     global contador  # Indicamos que usaremos la variable global contador
-    num = int(entry_numeros.get())  # Convertimos la entrada a número entero
-    
+    try:
+        num = int(entry_numeros.get())  # Convertimos la entrada a número entero
+    except ValueError:
+        ventana_error_flag()
+
     if not lista_numeros:  # Si la lista está vacía
         añadido_label.config(text=f"Número {num} añadido")
         lista_numeros.append(num)
@@ -37,10 +40,22 @@ def sumar_lista():
     lista_numeros.clear()  # Vaciamos la lista
     contador = 0  # Reiniciamos el contador
 
+def ventana_error_flag():
+    ventana_error = tk.Tk()
+    ventana_error.title("Error de ValueError")
+    ventana_error.geometry("150x75")
+    error_label = tk.Label(ventana_error, text="Introduce un número!")
+    error_label.pack()
+    boton_error = tk.Button(ventana_error, text="Cerrar", command=lambda: ventana_error.destroy())
+    boton_error.pack()
+
+    
+    
 # Crear la ventana principal
 ventana = tk.Tk()
 ventana.title("Suma de lista de valores")  # Título de la ventana
 ventana.geometry("200x150")  # Tamaño inicial de la ventana
+
 
 # Crear y configurar el campo de entrada
 entry_label = tk.Label(ventana, text="Entrada de numeros:")  # Etiqueta para el campo de entrada
