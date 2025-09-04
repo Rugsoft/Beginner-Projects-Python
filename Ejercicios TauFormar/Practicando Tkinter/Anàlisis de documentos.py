@@ -37,7 +37,7 @@ def analizar_documento():
     letras = [len(palabra) for palabra in lista_palabras]
     letras_totales = sum(letras)
     # Contador de vocales
-    vocales = "aeiouAEIOU" # Incluimos mayúsculas por si acaso
+    vocales = "aeiouAEIOU" # Incluimos mayúsculas
     total_vocales = 0
     for palabra in lista_palabras:
         for letra in palabra:
