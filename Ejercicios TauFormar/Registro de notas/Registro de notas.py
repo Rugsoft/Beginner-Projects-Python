@@ -29,8 +29,7 @@ def ver_lista_notas():
 
 def añadir_estudiante():
     # Añade un nuevo estudiante si no existe ya en la lista
-    nombre = input("Introduce el nombre del estudiante: ")with open(direccion_archivo, "w") as file:
-        for lista in listas_productos:
+    nombre = input("Introduce el nombre del estudiante: ")
     for item in lista_notas_nombres:
         if item["nombre"].lower() == nombre:
             print("El estudiante ya existe.")
