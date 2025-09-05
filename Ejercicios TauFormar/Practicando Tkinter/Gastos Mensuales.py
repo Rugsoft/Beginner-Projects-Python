@@ -20,7 +20,7 @@ def guardar_datos():
     
     concepto = entrada_concepto.get()
     gasto = float(entrada_gasto.get())
-    gastos[concepto] = gasto
+    gastos[concepto] += gasto
     with open("gastos.txt", "a") as f:
         f.write(f"{concepto},{gasto}\n")
     actualizar_mensaje("Datos guardados correctamente", COLOR_ETIQUETA_RESULTADO)
@@ -30,6 +30,12 @@ def actualizar_mensaje(texto, color):
     Actualiza el texto y color de la etiqueta de mensajes/feedback.
     """
     etiqueta_mensaje.config(text=texto, fg=color)
+
+def calcular_total():
+    total = sum(gastos.values())
+    messagebox.showinfo("Calculo realizado")
+    actualizar_mensaje(f"Total: {total:.2f} €", COLOR_ETIQUETA_RESULTADO)
+    
 
 def main():
     pass
@@ -92,7 +98,7 @@ if __name__=="__main__":
     boton_calcular = tk.Button(
     ventana,
     text="Calcular Total",
-    command=guardar_datos,
+    command=calcular_total,
     font=FONT_BOLD,
     bg=COLOR_BOTON,
     fg=COLOR_BOTON_TEXTO,
