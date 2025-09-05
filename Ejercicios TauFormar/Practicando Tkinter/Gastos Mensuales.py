@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 
+# Diccionario para almacenar los gastos en memoria durante la ejecución del programa.
+# La clave es el 'concepto' (string) y el valor es el 'gasto' (float).
 gastos = {}
 
 # --- Paleta de Colores y Fuentes ---
@@ -14,18 +16,34 @@ COLOR_MENSAJE_ERROR = "#E74C3C"
 
 FONT_NORMAL = ("Consolas", 12)
 FONT_BOLD = ("Consolas", 12, "bold")
-FONT_RESULTADO = ("onsolas", 16, "bold")
+FONT_RESULTADO = ("Consolas", 16, "bold")
 
 def guardar_datos():
-    
+    """
+    Obtiene el concepto y el gasto de los campos de entrada,
+    los valida, los guarda en el diccionario 'gastos' y en el archivo 'gastos.txt'.
+    """
     concepto = entrada_concepto.get()
-    gasto = float(entrada_gasto.get())
+    gasto_str = entrada_gasto.get()
+
+    if not concepto or not gasto_str:
+        actualizar_mensaje("Concepto y gasto no pueden estar vacíos.", COLOR_MENSAJE_ERROR)
+        return
+
+    try:
+        gasto = float(gasto_str)
+    except ValueError:
+        actualizar_mensaje("Error: Introduce un gasto numérico válido.", COLOR_MENSAJE_ERROR)
+        return
+
     if concepto in gastos:
         gastos[concepto] += gasto
     else:
         gastos[concepto] = gasto
+
     with open("gastos.txt", "a") as f:
         f.write(f"{concepto},{gasto}\n")
+
     entrada_gasto.delete(0, tk.END)
     entrada_concepto.delete(0, tk.END)
     actualizar_mensaje(f"Guardado {concepto}: {gasto:.2f} €", COLOR_ETIQUETA_RESULTADO)
@@ -37,18 +55,21 @@ def actualizar_mensaje(texto, color):
     etiqueta_mensaje.config(text=texto, fg=color)
 
 def calcular_total():
+    """
+    Calcula la suma de todos los gastos almacenados en el diccionario 'gastos'
+    y muestra el resultado en una ventana emergente y en una etiqueta.
+    """
+    if not gastos:
+        messagebox.showwarning("Sin datos", "No hay gastos registrados para calcular el total.")
+        return
+
     total = sum(gastos.values())
     messagebox.showinfo("Calculo realizado", f"Total: {total:.2f} €")
     actualizar_mensaje(f"Total: {total:.2f} €", COLOR_ETIQUETA_RESULTADO)
     
 
-def main():
-    pass
-    
-
-
-if __name__=="__main__":
-        # --- Configuración de la Ventana Principal ---
+if __name__ == "__main__":
+    # --- Configuración de la Ventana Principal ---
     ventana = tk.Tk()
     ventana.title("Calculadora - Gastos Mensuales")
     ventana.geometry("400x300")
@@ -56,7 +77,7 @@ if __name__=="__main__":
     
     etiqueta_info = tk.Label(
     ventana,
-    text="Introduce concepto y gasto:",
+    text="Introduce concepto y gasto (€):",
     font=FONT_NORMAL,
     bg=COLOR_FONDO,
     fg=COLOR_TEXTO
