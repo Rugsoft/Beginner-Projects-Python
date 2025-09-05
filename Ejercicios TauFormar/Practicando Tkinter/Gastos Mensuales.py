@@ -20,10 +20,12 @@ def guardar_datos():
     
     concepto = entrada_concepto.get()
     gasto = float(entrada_gasto.get())
-    gastos[concepto] += gasto
+    gastos[concepto] = gasto
     with open("gastos.txt", "a") as f:
         f.write(f"{concepto},{gasto}\n")
-    actualizar_mensaje("Datos guardados correctamente", COLOR_ETIQUETA_RESULTADO)
+    entrada_gasto.delete(0, tk.END)
+    entrada_concepto.delete(0, tk.END)
+    actualizar_mensaje(f"Guardado {concepto}: {gasto:.2f} €", COLOR_ETIQUETA_RESULTADO)
 
 def actualizar_mensaje(texto, color):
     """
