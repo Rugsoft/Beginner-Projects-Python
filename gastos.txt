@@ -1,3 +1,0 @@
-mierdolo,22.0
-metro,22.0
-bici,299.0

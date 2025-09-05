@@ -20,7 +20,10 @@ def guardar_datos():
     
     concepto = entrada_concepto.get()
     gasto = float(entrada_gasto.get())
-    gastos[concepto] = gasto
+    if concepto in gastos:
+        gastos[concepto] += gasto
+    else:
+        gastos[concepto] = gasto
     with open("gastos.txt", "a") as f:
         f.write(f"{concepto},{gasto}\n")
     entrada_gasto.delete(0, tk.END)
@@ -35,7 +38,7 @@ def actualizar_mensaje(texto, color):
 
 def calcular_total():
     total = sum(gastos.values())
-    messagebox.showinfo("Calculo realizado")
+    messagebox.showinfo("Calculo realizado", f"Total: {total:.2f} €")
     actualizar_mensaje(f"Total: {total:.2f} €", COLOR_ETIQUETA_RESULTADO)
     
 

@@ -41,13 +41,13 @@ def solicitar_preguntas(cantidad, categoria, dificultad):
     """
     Se conecta a la API de OpenTriviaDB para obtener las preguntas.
     
-    Args:
+    Argumentos:
         cantidad (int): El número de preguntas a solicitar.
         categoria (int): El ID de la categoría de las preguntas.
         dificultad (str): La dificultad de las preguntas ('easy', 'medium', 'hard').
         
     Returns:
-        list: Una lista de diccionarios, donde cada diccionario es una pregunta.
+            list: Una lista de diccionarios, donde cada diccionario es una pregunta.
               Retorna None si hay un error de conexión.
     """
     # Se construye la URL de la API usando un f-string para insertar los parámetros del usuario.
