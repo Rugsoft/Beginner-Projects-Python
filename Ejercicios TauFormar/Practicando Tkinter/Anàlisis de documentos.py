@@ -62,7 +62,7 @@ def guardar_analisis():
     if pt is None:
         return
         
-    cadena = (f"Palabras totales: {pt} - Letras totales: {lt} - Vocales totales: {tv}")
+    cadena = f"Palabras totales: {pt} - Letras totales: {lt} - Vocales totales: {tv}"
     with open("resultadoanalisis.txt", "w", encoding="utf-8") as archivo:
         archivo.write(cadena)
     messagebox.showinfo("Guardado", "El análisis se ha guardado en 'resultadoanalisis.txt'.")
