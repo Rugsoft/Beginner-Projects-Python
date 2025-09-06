@@ -1,5 +1,0 @@
-manzanas,100
-leche,50
-pan,40
-pera,35
-platano,20
