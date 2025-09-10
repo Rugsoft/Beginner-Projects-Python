@@ -1,0 +1,8 @@
+Gerson 52 20
+Cesar 45 23
+Oliver 39 25
+Denis 25 10
+Mourad 45 12
+Robert 32 25
+Dani 27 5
+Firdusi 48 2
